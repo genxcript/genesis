@@ -12,6 +12,7 @@ type Router struct {
 	routes []Route
 }
 
+// This is for the ListenAndServe to call our own ServeHTTP method
 func (router Router) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	for _, route := range router.routes {
 		if r.URL.Path == route.Path && r.Method == route.Method {
